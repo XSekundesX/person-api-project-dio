@@ -1,5 +1,6 @@
 package one.innovation.digital.personapiproject.controller;
 
+import lombok.AllArgsConstructor;
 import one.innovation.digital.personapiproject.dto.request.PersonDTO;
 import one.innovation.digital.personapiproject.dto.response.MessageResponseDTO;
 import one.innovation.digital.personapiproject.exception.PersonNotFoundException;
@@ -13,14 +14,10 @@ import java.util.List;
 
 
 @RestController
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonController {
 
     private PersonService personService;
-
-    @Autowired
-    public PersonController (PersonService personService){
-        this.personService = personService;
-    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
